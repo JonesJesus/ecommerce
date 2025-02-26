@@ -4,6 +4,7 @@ import br.com.espacomulher.ecommerce.model.Categoria;
 import br.com.espacomulher.ecommerce.model.Produto;
 import br.com.espacomulher.ecommerce.service.produto.IProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,8 @@ public class ProdutoController {
     private IProdutoService service;
 
     @GetMapping("/produtos")
-    public ResponseEntity<List<Produto>> recuperarTodos(){
-        return ResponseEntity.ok(service.recuperarTodos());
+    public ResponseEntity<Page<Produto>> recuperarTodos(@RequestParam(name = "p", defaultValue = "1")int p){
+        return ResponseEntity.ok(service.recuperarTodos(p));
     }
 
     @GetMapping("/produtos{id}")
