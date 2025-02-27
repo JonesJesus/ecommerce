@@ -1,5 +1,6 @@
 package br.com.espacomulher.ecommerce.service.pedido;
 
+import br.com.espacomulher.ecommerce.dto.FaturamentoMensal;
 import br.com.espacomulher.ecommerce.model.Pedido;
 import org.springframework.objenesis.instantiator.perc.PercInstantiator;
 
@@ -12,4 +13,5 @@ public interface IPedidoService {
     public List<Pedido> recuperarTodos();
     public Pedido recuperarPeloNumero(Integer numPedido);
     public List<Pedido> recuperarPorStatus(Integer status);
+    public List<FaturamentoMensal> recuperarFaturamento(Integer ano);
 }

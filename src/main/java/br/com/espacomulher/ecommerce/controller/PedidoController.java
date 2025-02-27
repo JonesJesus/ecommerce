@@ -1,5 +1,6 @@
 package br.com.espacomulher.ecommerce.controller;
 
+import br.com.espacomulher.ecommerce.dto.FaturamentoMensal;
 import br.com.espacomulher.ecommerce.model.Pedido;
 import br.com.espacomulher.ecommerce.service.pedido.IPedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,10 @@ public class PedidoController {
             return ResponseEntity.ok(res);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/pedidos/faturamento/{ano}")
+    public ResponseEntity<List<FaturamentoMensal>> recuperarFaturamento(@PathVariable Integer ano){
+        return ResponseEntity.ok(service.recuperarFaturamento(ano));
     }
 }

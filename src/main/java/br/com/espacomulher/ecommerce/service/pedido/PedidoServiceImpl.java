@@ -1,6 +1,7 @@
 package br.com.espacomulher.ecommerce.service.pedido;
 
 import br.com.espacomulher.ecommerce.dao.PedidoDAO;
+import br.com.espacomulher.ecommerce.dto.FaturamentoMensal;
 import br.com.espacomulher.ecommerce.model.ItemPedido;
 import br.com.espacomulher.ecommerce.model.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,5 +56,10 @@ public class PedidoServiceImpl implements IPedidoService{
     @Override
     public List<Pedido> recuperarPorStatus(Integer status) {
         return dao.findAllByStatus(status);
+    }
+
+    @Override
+    public List<FaturamentoMensal> recuperarFaturamento(Integer ano) {
+        return dao.recuperarFaturamento(ano);
     }
 }
